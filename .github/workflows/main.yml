@@ -1,0 +1,31 @@
+name: Action Test
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * 0' # Weekly on Sundays at 00:00
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: No Zone Test
+      uses: ./
+      continue-on-error: true
+      with:
+        Zone: ""
+    
+    - name: No Auth Test
+      uses: ./
+      continue-on-error: true
+      with:
+          Zone: ${{ secrets.TEST_ZONE}}
+
+    - name: Good Test
+      uses: ./
+      with:
+          Zone: ${{ secrets.TEST_ZONE }}
+          api_token: ${{ secrets.API_TOKEN }}
+          URLs: '["https://projects.jwhite.network"]'
