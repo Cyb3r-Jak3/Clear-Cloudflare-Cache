@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 uses() {
     [ -n "${1}" ]
@@ -16,7 +16,7 @@ main() {
         exit 1
     fi
 
-    if uses "${INPUT_GLOBAL_KEY}"; then
+    if uses "${INPUT_GLOBAL_TOKEN}"; then
         if uses "${INPUT_EMAIL}"; then
             method="legacy"
         else
@@ -30,7 +30,7 @@ main() {
         exit 1
     fi
 
-    if uses "$URLS"; then
+    if uses "${INPUT_URLS}"; then
         set -- --data '{"files":'"${INPUT_URLS}"'}'
     else
         set -- --data '{"purge_everything":true}'
