@@ -24,4 +24,4 @@ inputs:
     required: false
   urls:
     required: false
-    description: "The specific URLs to purge (a STRING in JSON format '["https://blog.jwhite.network", "https://blog.jwhite.network/about.png"]')"
+    description: "The specific URLs to purge (a STRING in JSON format '[\"https://blog.jwhite.network\", \"https://blog.jwhite.network/about.png\"]')"
