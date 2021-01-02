@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Good Test
+    - name: API Auth
       uses: ./
       with:
           zone: ${{ secrets.TEST_ZONE }}
