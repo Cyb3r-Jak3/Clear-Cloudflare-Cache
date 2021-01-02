@@ -31,9 +31,9 @@ main() {
     fi
 
     if uses "${INPUT_URLS}"; then
-        set -- --data '{"files":'"${INPUT_URLS}"'}'
+        urlInput='{"files":'"${INPUT_URLS}"'}'
     else
-        set -- --data '{"purge_everything":true}'
+        urlInput='{"purge_everything":true}'
     fi
     if [ "$method" = "legacy" ]; then
         RESPONSE=$(curl -sS "https://api.cloudflare.com/client/v4/zones/${INPUT_ZONE}/purge_cache" \
@@ -41,12 +41,14 @@ main() {
                       -H "X-Auth-Email: ${INPUT_EMAIL}" \
                       -H "X-Auth-Key: ${INPUT_GLOBAL_KEY}" \
                       -w "HTTP_STATUS:%{http_code}" \
+                      --data "${urlInput}"
                       )
     elif [ "$method" = "token" ]; then
         RESPONSE=$(curl -sS "https://api.cloudflare.com/client/v4/zones/${INPUT_ZONE}/purge_cache" \
                       -H "Content-Type: application/json" \
                       -H "Authorization: Bearer ${INPUT_API_TOKEN}" \
                       -w "HTTP_STATUS:%{http_code}" \
+                      --data "${urlInput}"
                       )
     fi
     BODY=$(echo "${RESPONSE}" | sed -E 's/HTTP_STATUS\:[0-9]{3}$//')
