@@ -42,7 +42,7 @@ main() {
                       -H "X-Auth-Key: ${INPUT_GLOBAL_KEY}" \
                       -w "HTTP_STATUS:%{http_code}" \
                       "$@")
-    elif [ "$API_METHOD" -eq 2 ]; then
+    elif [ "$method" = "token" ]; then
         RESPONSE=$(curl -sS "https://api.cloudflare.com/client/v4/zones/${INPUT_ZONE}/purge_cache" \
                       -H "Content-Type: application/json" \
                       -H "Authorization: Bearer ${INPUT_API_TOKEN}" \
