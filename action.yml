@@ -3,8 +3,7 @@ description: "Clears a zone's cache via the Cloudflare API"
 author: Cyb3r-Jake
 runs:
   using: docker
-  image: "docker://cyb3rjak3/docker-curl-ssh"
-  entrypoint: entrypoint.sh
+  image: Dockerfile
 branding:
   icon: 'zap'  
   color: 'purple'
