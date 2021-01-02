@@ -1,0 +1,27 @@
+name: "Cloudflare Clear Cache"
+description: "Clears a zone's cache via the Cloudflare API"
+author: Cyb3r-Jake
+runs:
+  using: docker
+  image: "docker://cyb3rjak3/docker-curl-ssh"
+  entrypoint: entrypoint.sh
+branding:
+  icon: 'zap'  
+  color: 'purple'
+
+inputs:
+  Zone:
+    description: "The Zone ID of your domain, which can be found in the right sidebar of your domain's overview page on the Cloudflare dashboard."
+    required: true
+  Email:
+    description: "The email address you registered your Cloudflare account with."
+    required: false
+  GLOBAL_KEY:
+    description: "Your Global Cloudflare API key. Highly not recommended to use"
+    required: false
+  API_TOKEN:
+    description: "A Cloudflare API Token"
+    required: false
+  URLs:
+    required: false
+    description: "The specific URLs to purge (a STRING in JSON format '["https://blog.jwhite.network", "https://blog.jwhite.network/about.png"]')"
