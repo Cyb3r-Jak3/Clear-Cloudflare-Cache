@@ -1,0 +1,46 @@
+name: Action Test
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  Action_Test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: API Auth
+      uses: ./
+      with:
+          zone: ${{ secrets.TEST_ZONE }}
+          api_token: ${{ secrets.TEST_TOKEN }}
+          URLs: '["https://projects.jwhite.network"]'
+    
+    - name: Legacy Auth
+      uses: ./
+      with:
+          zone: ${{ secrets.TEST_ZONE }}
+          global_token: ${{ secrets.TEST_GLOBAL_TOKEN}}
+          email: ${{ secrets.TEST_GLOBAL_EMAIL }}
+          URLs: '["https://projects.jwhite.network"]'
+
+    - name: No Zone Test
+      uses: ./
+      continue-on-error: true
+      with:
+        Zone: ""
+    
+    - name: No Auth Test
+      uses: ./
+      continue-on-error: true
+      with:
+          Zone: ${{ secrets.TEST_ZONE}}
+
+    - name: Half Legacy Auth
+      uses: ./
+      continue-on-error: true
+      with:
+          Zone: ${{ secrets.TEST_ZONE}}
+          global_token: ${{ secrets.TEST_GLOBAL_TOKEN}}
