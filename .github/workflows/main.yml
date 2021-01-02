@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * 0'
 
 jobs:
-  test:
+  Action_Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -14,7 +14,7 @@ jobs:
     - name: Good Test
       uses: ./
       with:
-          Zone: ${{ secrets.TEST_ZONE }}
+          zone: ${{ secrets.TEST_ZONE }}
           api_token: ${{ secrets.API_TOKEN }}
           URLs: '["https://projects.jwhite.network"]'
 

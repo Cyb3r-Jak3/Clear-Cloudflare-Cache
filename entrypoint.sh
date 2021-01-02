@@ -27,6 +27,7 @@ main() {
         method="token"
     else
         echo "No Authentication Method was given."
+        exit 1
     fi
 
     if uses "$URLS"; then

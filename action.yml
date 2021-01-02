@@ -21,6 +21,6 @@ inputs:
   api_token:
     description: "A Cloudflare API Token"
     required: false
-  urls:
+  URLs:
     required: false
     description: "The specific URLs to purge (a STRING in JSON format '[\"https://blog.jwhite.network\", \"https://blog.jwhite.network/about.png\"]')"
