@@ -15,7 +15,7 @@ jobs:
       uses: ./
       with:
           zone: ${{ secrets.TEST_ZONE }}
-          api_token: ${{ secrets.API_TOKEN }}
+          api_token: ${{ secrets.TEST_TOKEN }}
           URLs: '["https://projects.jwhite.network"]'
 
     - name: No Zone Test
