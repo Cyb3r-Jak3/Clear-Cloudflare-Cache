@@ -39,7 +39,7 @@ main() {
         RESPONSE=$(curl -sS "https://api.cloudflare.com/client/v4/zones/${INPUT_ZONE}/purge_cache" \
                       -H "Content-Type: application/json" \
                       -H "X-Auth-Email: ${INPUT_EMAIL}" \
-                      -H "X-Auth-Key: ${INPUT_GLOBAL_KEY}" \
+                      -H "X-Auth-Key: ${INPUT_GLOBAL_TOKEN}" \
                       -w "HTTP_STATUS:%{http_code}" \
                       --data "${urlInput}"
                       )
