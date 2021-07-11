@@ -1,5 +1,9 @@
 # 🧹 Clear Cloudflare Cache 🧹
 
+# This action is not longer supported. Please switch to [my new action](https://github.com/marketplace/actions/cloudflare-cache-cleaner)
+
+[![No Maintenance Intended](https://unmaintained.tech/badge.svg)](https://unmaintained.tech/)
+
 ![Action Test](https://github.com/Cyb3r-Jak3/Clear-Cloudflare-Cache/workflows/Action%20Test/badge.svg)
 
 A Github Action that clears cache from Cloudflare. Useful for after deployment as new code will be pulled from your server rather than served from Cloudflare.
@@ -7,7 +11,7 @@ A Github Action that clears cache from Cloudflare. Useful for after deployment a
 
 ## Configuration
 
-**All senstive information like zones and tokens should be stored with [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)**
+**All sensitive information like zones and tokens should be stored with [encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)**
 
 ### Zone ID
 
